@@ -12,4 +12,11 @@ public class Error {
   @NonNull private String error;
   @NonNull private String message;
   String path;
+
+  public Error(String timestamp, Integer status, String error, String message) {
+    this.timestamp = timestamp;
+    this.status = status;
+    this.error = error;
+    this.message = message;
+  }
 }
