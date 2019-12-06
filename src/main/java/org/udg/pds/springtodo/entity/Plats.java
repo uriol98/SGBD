@@ -1,5 +1,6 @@
 package org.udg.pds.springtodo.entity;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -31,20 +32,28 @@ public class Plats implements Serializable {
   @Id
   private String id;
 
+  @JsonView(Views.Private.class)
   private String nom;
 
+  @JsonView(Views.Private.class)
   private String descripcio;
 
+  @JsonView(Views.Private.class)
   private String tipus;
 
+  @JsonView(Views.Private.class)
   private int ordre;
 
+  @JsonView(Views.Private.class)
   private Collection<String> ingredients;
 
+  @JsonView(Views.Private.class)
   private Collection<String> restriccions;
 
+  @JsonView(Views.Private.class)
   private String url;
 
+  @JsonView(Views.Private.class)
   private int popularitat;
 
 }
