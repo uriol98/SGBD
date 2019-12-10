@@ -3,7 +3,6 @@ package org.udg.pds.springtodo.controller;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.udg.pds.springtodo.entity.Plats;
 import org.udg.pds.springtodo.entity.Recomanacio;
 import org.udg.pds.springtodo.entity.Views;
 import org.udg.pds.springtodo.service.PlatsService;
@@ -17,7 +16,7 @@ public class PlatsController extends BaseController {
   @Autowired
   PlatsService platsService;
 
-  @GetMapping(path="/suggest", consumes = "application/json")
+  @PostMapping (path="/suggest", consumes = "application/json")
   @ResponseBody
   @JsonView(Views.Private.class)
   public Recomanacio seleccionaPlats (@RequestBody R_Opcions opcions) {
