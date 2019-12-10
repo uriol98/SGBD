@@ -17,7 +17,7 @@ public class PlatsController extends BaseController {
   @Autowired
   PlatsService platsService;
 
-  @GetMapping(path="/suggest", consumes = "application/json")
+  @PostMapping(path="/suggest", consumes = "application/json")
   @ResponseBody
   @JsonView(Views.Private.class)
   public Recomanacio seleccionaPlats (@RequestBody R_Opcions opcions) {
