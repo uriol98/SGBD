@@ -17,6 +17,9 @@ public class PlatsService {
   final int PRIMERS = 1;
   final int SEGONS = 2;
   final int POSTRES = 3;
+  final int PRIMERS_E = 11;
+  final int SEGONS_E = 22;
+  final int POSTRES_E = 33;
 
   public PlatsService(PlatsRepository platsRepository) {
     this.platsRepository = platsRepository;
@@ -35,9 +38,16 @@ public class PlatsService {
     List<Plats> segonsRecomanats;
     List<Plats> postresRecomanats;
     if (estilsCuina.isEmpty()) {
-      primers = platsRepository.buscarPlatsTotsEstilsCuina(restriccions,PRIMERS,sort);
-      segons = platsRepository.buscarPlatsTotsEstilsCuina(restriccions,SEGONS,sort);
-      postres = platsRepository.buscarPlatsTotsEstilsCuina(restriccions,POSTRES,sort);
+      if (restriccions.size() == 7) { //S'activa la combinació per mostrar l'Easter Egg
+        primers = platsRepository.buscarPlatsTotsEstilsCuina(restriccions,PRIMERS_E,sort);
+        segons = platsRepository.buscarPlatsTotsEstilsCuina(restriccions,SEGONS_E,sort);
+        postres = platsRepository.buscarPlatsTotsEstilsCuina(restriccions,POSTRES_E,sort);
+      }
+      else {
+        primers = platsRepository.buscarPlatsTotsEstilsCuina(restriccions,PRIMERS,sort);
+        segons = platsRepository.buscarPlatsTotsEstilsCuina(restriccions,SEGONS,sort);
+        postres = platsRepository.buscarPlatsTotsEstilsCuina(restriccions,POSTRES,sort);
+      }
     }
     else {
       primers = platsRepository.buscarPlats(estilsCuina,restriccions,PRIMERS,sort);
